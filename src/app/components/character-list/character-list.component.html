@@ -1,0 +1,27 @@
+
+<body>
+<div> 
+ <a class="title">STAR WARS</a>   
+ 
+ <ul>
+    <li *ngFor="let character of characters">
+      <div class="name"> {{ character.name }}   </div><br/>
+      <div class="props">
+      <a class="prop">Hair Color:</a> {{character.hair_color}} <br/>
+      <a class="prop">Eyes color:</a> {{character.eye_color}} <br/>
+      <a class="prop">Gender:</a> {{character.gender}} <br/>
+      </div>
+      <div class="films">
+      <a class="prop">Films:</a>
+      <ng-container *ngFor="let film of character.films">
+        <a class="film" href="{{film}}">{{film[film.length - 2]}}</a> <br/>
+      </ng-container>
+      </div>
+    </li>
+  </ul>  
+</div>
+<div class="btns"> 
+  <button class="btn" *ngIf="previous" (click)="changePage(previous)">Previous</button>
+  <button class="btn" *ngIf="next" (click)="changePage(next)">Next</button>
+</div>
+</body>
